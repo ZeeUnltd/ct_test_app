@@ -1,0 +1,4 @@
+*zip
+*.DS_Store
+real_imgs/
+node_modules
