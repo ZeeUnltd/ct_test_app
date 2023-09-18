@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>10</li>
+      <li>50</li>
+      <li>10</li>
+    </ul>
+    <div id="total"></div>
+
+    <script>
+      //   function computeTotal() {
+      //     let total = 0;
+      //     $("li").each((el) => {
+      //       let li = $("li")[el];
+      //       total += parseInt(li.innerText, 10);
+      //     });
+      //     $("#total").text(`Total: ${total}`);
+      //   }
+
+      function computeTotal() {
+        let total = 0;
+        $("li").each((el) => {
+          let li = $("li")[el];
+          total += parseInt($(li).text(), 10);
+        });
+        $("#total").text(`Total: ${total}`);
+      }
+
+      //   wrong answer
+      //   function computeTotal() {
+      //     let total = 0;
+      //     console.log($("li"));
+      //     $("li").each(() => {
+      //       total += parseInt($(this).text(), 10);
+      //     });
+      //     $("#total").text(`Total: ${total}`);
+      //   }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        computeTotal();
+      });
+    </script>
+  </body>
+</html>
