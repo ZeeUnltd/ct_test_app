@@ -1,270 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,300;0,400;1,400;1,900&family=Oswald:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              clifford: "#da373d",
-              default: "#697997",
-            },
-            fontFamily: {
-              display: ["Lato"],
-              nav: ["Bebas Neue", "sans - serif"],
-              oswald: ["oswald"],
-            },
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,300;0,400;1,400;1,900&family=Oswald:wght@500&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: "#da373d",
+            default: "#697997",
+          },
+          fontFamily: {
+            display: ["Lato"],
+            nav: ["Bebas Neue", "sans - serif"],
+            oswald: ["oswald"],
           },
         },
-      };
-    </script>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      div {
-        scroll-behavior: smooth;
-      }
-      /* Slideshow container */
-      .slideshow-container {
-        max-width: 1000px;
-        position: relative;
-        margin: auto;
+      },
+    };
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      scroll-behavior: smooth;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+      display: none;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 7px;
+      width: 7px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    section {
+      scroll-snap-stop: always;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0.4;
       }
 
-      /* Hide the images by default */
-      .mySlides {
-        display: none;
+      to {
+        opacity: 1;
       }
+    }
+  </style>
+</head>
 
-      /* Next & previous buttons */
-      .prev,
-      .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        margin-top: -22px;
-        padding: 16px;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-      }
-
-      /* Position the "next button" to the right */
-      .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-      }
-
-      /* On hover, add a black background color with a little bit see-through */
-      .prev:hover,
-      .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-      }
-
-      /* Caption text */
-      .text {
-        color: #f2f2f2;
-        font-size: 15px;
-        padding: 8px 12px;
-        position: absolute;
-        bottom: 8px;
-        width: 100%;
-        text-align: center;
-      }
-
-      /* Number text (1/3 etc) */
-      .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-      }
-
-      /* The dots/bullets/indicators */
-      .dot {
-        cursor: pointer;
-        height: 7px;
-        width: 7px;
-        margin: 0 2px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.6s ease;
-      }
-
-      section {
-        scroll-snap-stop: always;
-      }
-
-      .active,
-      .dot:hover {
-        background-color: #717171;
-      }
-
-      /* Fading animation */
-      .fade {
-        animation-name: fade;
-        animation-duration: 1.5s;
-      }
-
-      @keyframes fade {
-        from {
-          opacity: 0.4;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-    </style>
-  </head>
-  <body class="font-display">
-    <header class="sticky top-0 z-20">
-      <nav class="text-bold">
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div class="relative flex h-16 items-center justify-between">
-            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-              <!-- Mobile menu button-->
-              <button
-                onclick="toggleMenu(event)"
-                type="button"
-                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-              >
-                <span class="absolute -inset-0.5"></span>
-                <span class="sr-only">Open main menu</span>
-                <!--
+<body class="font-display">
+  <header class="sticky top-0 z-20">
+    <nav class="text-bold">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button onclick="toggleMenu(event)" type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu" aria-expanded="false">
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <!--
                         Icon when menu is closed.
                         Menu open: "hidden", Menu closed: "block"
                       -->
-                <img
-                  id="navButton"
-                  onclick="toggleMenu(event)"
-                  src="./assets/img/logo-app.png"
-                  title="top"
-                  alt="top"
-                  class="h-16 hidden md:block"
-                  srcset=""
-                />
-                <svg
-                  class="block h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-                <!--
+              <img id="navButton" onclick="toggleMenu(event)" src="./assets/img/logo-app.png" title="top" alt="top"
+                class="h-16 hidden md:block" srcset="" />
+              <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <!--
                         Icon when menu is open.
             
                         Menu open: "block", Menu closed: "hidden"
                       -->
-                <svg
-                  onclick="toggleMenu(event)"
-                  class="hidden h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+              <svg onclick="toggleMenu(event)" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <!-- Desktop Nav Menu -->
+          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
+            <div id="mobileMenu" class="flex flex-shrink-0 items-center" sign="@blackvnicorn|azegaf@gmail.com|+2348030470290
+              ">
+              <img class="h-8 w-auto" src="./assets/img/logo-app.png" alt="Your Company" />
             </div>
-            <!-- Desktop Nav Menu -->
-            <div
-              class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between"
-            >
-              <div
-                id="mobileMenu"
-                class="flex flex-shrink-0 items-center"
-                sign="@blackvnicorn|azegaf@gmail.com|+2348030470290
-              "
-              >
-                <img
-                  class="h-8 w-auto"
-                  src="/assets/img/logo-app.png"
-                  alt="Your Company"
-                />
-              </div>
-              <div class="hidden sm:ml-6 sm:block">
-                <div
-                  id="navItems"
-                  class="flex space-x-4 underline-offset-8 underline italic uppercase text-bold text-9xl text-white menu-links"
-                >
-                  <!-- <a
+            <div class="hidden sm:ml-6 sm:block">
+              <div id="navItems"
+                class="flex space-x-4 underline-offset-8 underline italic uppercase text-bold text-9xl text-white menu-links">
+                <!-- <a
                     href="#"
                     class="text-white rounded-md px-3 py-2 text-sm font-bold"
                     aria-current="page"
                     >Dashboard</a
                   > -->
-                  <a
-                    href="#history"
-                    class="font-nav hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-bold"
-                  >
-                    01. History</a
-                  >
-                  <a
-                    href="#climb"
-                    class="font-nav hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-bold"
-                    >02. Team</a
-                  >
-                  <!-- <a
+                <a href="#history"
+                  class="font-nav hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-bold">
+                  01. History</a>
+                <a href="#climb"
+                  class="font-nav hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-bold">02.
+                  Team</a>
+                <!-- <a
                     href="#"
                     class="text-gray-300 font-nav hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-bold"
                     >New</a
                   > -->
-                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Mobile Dropdown Menu, show/hide based on menu state. -->
-        <div id="mobileDropdown" class="hidden md:hidden bg-white fade">
-          <div class="space-y-1 px-2 pb-3 pt-2">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a
-              href="#history"
-              class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-              aria-current="page"
-              >History</a
-            >
-            <a
-              href="#climb"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-              >Team</a
-            >
-            <!-- <a
+      <!-- Mobile Dropdown Menu, show/hide based on menu state. -->
+      <div id="mobileDropdown" class="hidden md:hidden bg-white fade">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+          <a href="#history" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+            aria-current="page">History</a>
+          <a href="#climb"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+          <!-- <a
               href="#"
               class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
               >Projects</a
@@ -274,409 +222,345 @@
               class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
               >Calendar</a
             > -->
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <section
-        class="Hero relative bg-[url('./assets/img/hero-min.jpeg')] bg-no-repeat h-screen md:bg-[top_left_75%] bg-[center_left_62%] bg-cover md:bg-auto mt-[-4em]"
-      >
-        &#32;
-      </section>
-
-      <!-- Carousel -->
-      <section
-        id="history"
-        class="border-0 relative w-full h-screen"
-        sign="@blackvnicorn|azegaf@gmail.com|+2348030470290
-      "
-      >
-        <!-- Full-width Slides with number and caption text -->
-        <div
-          class="mySlides fade w-full h-60 bg-[url('./assets/img/2nd-backdrop-peak-min.jpeg')] bg-no-repeat h-screen bg-cover"
-        >
-          <article
-            class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 md:pt-[2em] lg:pt-[4em] relative"
-          >
-            <div class="md:flex justify-between w-full">
-              <p class="md:w-2/6">
-                <span
-                  class="font-oswald font-bold text-[#697997] text-[4em] md:text-[10em] opacity-50"
-                >
-                  01.
-                </span>
-                <span
-                  class="font-oswald font-bold text-[#414f6b] text-md text-[2em] md:text-[2em] md:align-[37px] md:ml-[-2.2em] uppercase"
-                >
-                  History
-                </span>
-              </p>
-              <p class="md:w-5/6 md:mt-[6em] font-lato text-black">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Necessitatibus est sunt neque, corporis nesciunt eos cum tempora
-                deserunt pariatur, optio recusandae eum veritatis unde
-                repudiandae aspernatur quos in deleniti! Id? Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Corporis explicabo
-                debitis corrupti esse nisi commodi deleniti cumque nesciunt
-                deserunt dolorem fugit, suscipit sit, aliquid non ipsa minus
-                quaerat! Autem, repudiandae!
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <div
-          class="mySlides fade w-full h-60 bg-[url('./assets/img/2nd-carousel-min.jpeg')] bg-no-repeat h-screen bg-cover"
-        >
-          <div class="numbertext">2 / 3</div>
-
-          <article
-            class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 md:pt-[2em] lg:pt-[4em] relative"
-          >
-            <div class="md:flex justify-between w-full">
-              <p class="md:w-2/6">
-                <span
-                  class="font-oswald font-bold text-[#697997] text-[4em] md:text-[10em] opacity-50"
-                >
-                  02.
-                </span>
-                <span
-                  class="font-oswald font-bold text-[#414f6b] text-md text-[2em] md:text-[2em] md:align-[37px] md:ml-[-2.2em] uppercase"
-                >
-                  Climb
-                </span>
-              </p>
-              <p class="md:w-5/6 md:mt-[6em] font-lato text-black">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Necessitatibus est sunt neque, corporis nesciunt eos cum tempora
-                deserunt pariatur, optio recusandae eum veritatis unde
-                repudiandae aspernatur quos in deleniti! Id? Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Corporis explicabo
-                debitis corrupti esse nisi commodi deleniti cumque nesciunt
-                deserunt dolorem fugit, suscipit sit, aliquid non ipsa minus
-                quaerat! Autem, repudiandae!
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <div
-          class="mySlides fade w-full h-60 bg-[url('./assets/img/1st-carousel-min.jpeg')] bg-no-repeat h-screen bg-cover"
-          sign="@blackvnicorn|azegaf@gmail.com|+2348030470290
-        "
-        >
-          <div class="numbertext">3 / 3</div>
-          <article
-            class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 md:pt-[2em] lg:pt-[4em] relative"
-          >
-            <div class="md:flex justify-between w-full">
-              <p class="md:w-2/6">
-                <span
-                  sty
-                  class="font-oswald font-bold text-[#697997] text-[4em] md:text-[10em] opacity-50"
-                >
-                  03.
-                </span>
-                <span
-                  class="font-oswald font-bold text-[#414f6b] text-md text-[2em] md:text-[2em] md:align-[37px] md:ml-[-2.2em] uppercase"
-                >
-                  Rest
-                </span>
-              </p>
-              <p class="md:w-5/6 md:mt-[6em] font-lato text-black">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Necessitatibus est sunt neque, corporis nesciunt eos cum tempora
-                deserunt pariatur, optio recusandae eum veritatis unde
-                repudiandae aspernatur quos in deleniti! Id? Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Corporis explicabo
-                debitis corrupti esse nisi commodi deleniti cumque nesciunt
-                deserunt dolorem fugit, suscipit sit, aliquid non ipsa minus
-                quaerat! Autem, repudiandae!
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)" @blackvnicorn-signed
-          >&#10094;</a
-        >
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        <!-- Carousel Nav Section  -->
-        <div
-          class="absolute bottom-0 bg-[#374151cc] text-center w-full md:pt-7"
-        >
-          <!-- The Thunmbnails -->
-          <div class="md:block hidden mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div class="flex justify-between item-center w-full gap-3">
-              <div
-                onclick="currentSlide(1)"
-                class="h-[20vh] cursor-pointer w-1/4 bg-[url('./assets/img/2nd-backdrop-peak-min.jpeg')] bg-cover"
-              >
-                &#32;
-              </div>
-              <div
-                onclick="currentSlide(2)"
-                class="h-[20vh] cursor-pointer w-1/4 bg-[url('./assets/img/2nd-carousel-min.jpeg')] bg-cover"
-              >
-                &#32;
-              </div>
-              <div
-                onclick="currentSlide(3)"
-                class="h-[20vh] cursor-pointer w-1/4 bg-[url('./assets/img/1st-carousel-min.jpeg')] bg-cover"
-              >
-                &#32;
-              </div>
-              <div
-                onclick="currentSlide(1)"
-                class="h-[20vh] cursor-pointer w-1/4 bg-[url('./assets/img/2nd-backdrop-peak-min.jpeg')] bg-cover"
-              >
-                &#32;
-              </div>
-            </div>
-          </div>
-          <!-- The dots/circles -->
-          <div class="text-center py-3">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tabs -->
-      <section
-        id="climb"
-        class="border-0 relative w-full h-screen"
-        sign="@blackvnicorn|azegaf@gmail.com|+2348030470290
-      "
-      >
-        <div
-          class="w-full h-60 bg-[url('./assets/img/3rd-backdrop-peak-min.jpeg')] bg-no-repeat h-screen bg-cover"
-        >
-          <!-- heading -->
-          <div class="w-full bg-white">
-            <div
-              class="md:flex justify-between w-full mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
-            >
-              <p class="md:w-2/6">
-                <span
-                  class="font-oswald font-bold text-[#697997] text-[4em] md:text-[10em] opacity-50"
-                >
-                  02.
-                </span>
-                <span
-                  class="font-oswald font-bold text-[#414f6b] text-md text-[2em] md:text-[2em] md:align-[37px] md:ml-[-2.2em] uppercase"
-                >
-                  Climb
-                </span>
-              </p>
-              <p class="md:w-5/6 md:mt-[6em] font-lato text-black">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Necessitatibus est sunt neque, corporis nesciunt eos cum tempora
-                deserunt pariatur, optio recusandae eum veritatis unde
-                repudiandae aspernatur quos in deleniti! Id? Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Corporis explicabo
-                debitis corrupti esse nisi commodi deleniti cumque nesciunt
-                deserunt dolorem fugit, suscipit sit, aliquid non ipsa minus
-                quaerat! Autem, repudiandae!
-              </p>
-            </div>
-          </div>
-          <div class="w-full h-16 bg-gray-700">
-            <div
-              class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex justify-start"
-            >
-              <button
-                onclick="toggleTab(this)"
-                id="tabButton1"
-                name="1"
-                class="text-[#414f6b] bg-[#afb3bd] text-2xl h-16 px-5 uppercase font-oswald font-bold active underline"
-              >
-                mountain 1
-              </button>
-              <button
-                onclick="toggleTab(this)"
-                id="tabButton2"
-                name="2"
-                class="text-[#414f6b] bg-[#374151cc] text-2xl h-16 px-5 uppercase font-oswald font-bold active underline"
-              >
-                mountain 2
-              </button>
-            </div>
-          </div>
-
-          <section id="sectionBody">
-            <!-- Tabs and Buttons -->
-            <article id="tabSection1" class="tab1 block">
-              <div class="mx-auto max-w-7xl mx-8 lg:px-8">
-                <div
-                  class="w-full bg-[#ffffffc9] px-6 py-3 lg:p-12 lg:w-2/6 lg:m-20"
-                >
-                  <p class="py-4 font-oswald font-bold text-4xl text-default">
-                    SCHEDULE 1
-                  </p>
-                  <div class="flex justify-between py-6">
-                    <div>
-                      <p class="my-3">25 DEC 2023</p>
-                      <p class="my-3">25 DEC 2023</p>
-                      <p class="my-3">25 DEC 2023</p>
-                      <p class="my-3">25 DEC 2023</p>
-                    </div>
-                    <div>
-                      <p class="my-3">25 NOV 2016</p>
-                      <p class="my-3">25 NOV 2016</p>
-                      <p class="my-3">25 NOV 2016</p>
-                      <p class="my-3">25 NOV 2016</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article id="tabSection2" class="tab2 hidden">
-              <div class="mx-auto max-w-7xl mx-8 lg:px-8">
-                <div
-                  class="w-full bg-[#ffffffc9] px-6 py-3 lg:p-12 lg:w-2/6 lg:m-20"
-                >
-                  <p class="py-4 font-oswald font-bold text-4xl text-default">
-                    SCHEDULE 2
-                  </p>
-                  <div class="flex justify-between py-6">
-                    <div>
-                      <p class="my-3">25 NOV 2016</p>
-                      <p class="my-3">25 NOV 2016</p>
-                      <p class="my-3">25 NOV 2016</p>
-                      <p class="my-3">25 NOV 2016</p>
-                    </div>
-                    <div>
-                      <p class="my-3">VIENA</p>
-                      <p class="my-3">VIENNA</p>
-                      <p class="my-3">VIENNA</p>
-                      <p class="my-3">VIENNA</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </section>
-        </div>
-      </section>
-    </main>
-    <footer class="bg-[#404e6c] h-20 m-auto py-5">
-      <div class="flex justify-between mx-auto max-w-7xl mx-8 lg:px-8 my-auto">
-        <div class="h-100 my-auto flex item-center">
-          <img
-            class="brightness-125 flex items-center"
-            src="./assets/img/logo-app.png"
-            alt="Your Company"
-          />
-          <!-- <img src="'/assets/img/logo-app.png" alt="" srcset="" /> -->
-        </div>
-        <div class="text-default text-right flex items-center">
-          COPYRIGHT 2016. ALL RIGHTS RESERVED.
         </div>
       </div>
-    </footer>
-    <script>
-      window.onscroll = function () {
-        myFunction();
-      };
-      let header = document.querySelectorAll("header");
-      let dropDownMenu = document.getElementById("mobileDropdown");
-      let navMenu = document.getElementById("navButton");
-      let navItems = document.getElementById("navItems");
-      let slideIndex = 1;
-      let isDropownOpen = false;
+    </nav>
+  </header>
+  <main>
+    <section
+      class="Hero relative bg-[url('./assets/img/hero-min.jpeg')] bg-no-repeat h-screen md:bg-[top_left_75%] bg-[center_left_62%] bg-cover md:bg-auto mt-[-4em]">
+      &#32;
+    </section>
 
-      function myFunction() {
-        if (window.pageYOffset > 100) {
-          header[0].classList.add("bg-white");
-          navItems.classList.remove("text-gray-300");
-          navItems.classList.add("text-gray-600");
-        } else {
-          header[0].classList.remove("bg-white");
-          navItems.classList.add("text-gray-300");
-          navItems.classList.remove("text-gray-600");
-        }
+    <!-- Carousel -->
+    <section id="history" class="border-0 relative w-full h-screen" sign="@blackvnicorn|azegaf@gmail.com|+2348030470290
+      ">
+      <!-- Full-width Slides with number and caption text -->
+      <div
+        class="mySlides fade w-full h-60 bg-[url('./assets/img/2nd-backdrop-peak-min.jpeg')] bg-no-repeat h-screen bg-cover">
+        <article class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 md:pt-[2em] lg:pt-[4em] relative">
+          <div class="md:flex justify-between w-full">
+            <p class="md:w-2/6">
+              <span class="font-oswald font-bold text-[#697997] text-[4em] md:text-[10em] opacity-50">
+                01.
+              </span>
+              <span
+                class="font-oswald font-bold text-[#414f6b] text-md text-[2em] md:text-[2em] md:align-[37px] md:ml-[-2.2em] uppercase">
+                History
+              </span>
+            </p>
+            <p class="md:w-5/6 md:mt-[6em] font-lato text-black">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Necessitatibus est sunt neque, corporis nesciunt eos cum tempora
+              deserunt pariatur, optio recusandae eum veritatis unde
+              repudiandae aspernatur quos in deleniti! Id? Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Corporis explicabo
+              debitis corrupti esse nisi commodi deleniti cumque nesciunt
+              deserunt dolorem fugit, suscipit sit, aliquid non ipsa minus
+              quaerat! Autem, repudiandae!
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div
+        class="mySlides fade w-full h-60 bg-[url('./assets/img/2nd-carousel-min.jpeg')] bg-no-repeat h-screen bg-cover">
+        <div class="numbertext">2 / 3</div>
+
+        <article class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 md:pt-[2em] lg:pt-[4em] relative">
+          <div class="md:flex justify-between w-full">
+            <p class="md:w-2/6">
+              <span class="font-oswald font-bold text-[#697997] text-[4em] md:text-[10em] opacity-50">
+                02.
+              </span>
+              <span
+                class="font-oswald font-bold text-[#414f6b] text-md text-[2em] md:text-[2em] md:align-[37px] md:ml-[-2.2em] uppercase">
+                Climb
+              </span>
+            </p>
+            <p class="md:w-5/6 md:mt-[6em] font-lato text-black">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Necessitatibus est sunt neque, corporis nesciunt eos cum tempora
+              deserunt pariatur, optio recusandae eum veritatis unde
+              repudiandae aspernatur quos in deleniti! Id? Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Corporis explicabo
+              debitis corrupti esse nisi commodi deleniti cumque nesciunt
+              deserunt dolorem fugit, suscipit sit, aliquid non ipsa minus
+              quaerat! Autem, repudiandae!
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div
+        class="mySlides fade w-full h-60 bg-[url('./assets/img/1st-carousel-min.jpeg')] bg-no-repeat h-screen bg-cover"
+        sign="@blackvnicorn|azegaf@gmail.com|+2348030470290
+        ">
+        <div class="numbertext">3 / 3</div>
+        <article class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 md:pt-[2em] lg:pt-[4em] relative">
+          <div class="md:flex justify-between w-full">
+            <p class="md:w-2/6">
+              <span sty class="font-oswald font-bold text-[#697997] text-[4em] md:text-[10em] opacity-50">
+                03.
+              </span>
+              <span
+                class="font-oswald font-bold text-[#414f6b] text-md text-[2em] md:text-[2em] md:align-[37px] md:ml-[-2.2em] uppercase">
+                Rest
+              </span>
+            </p>
+            <p class="md:w-5/6 md:mt-[6em] font-lato text-black">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Necessitatibus est sunt neque, corporis nesciunt eos cum tempora
+              deserunt pariatur, optio recusandae eum veritatis unde
+              repudiandae aspernatur quos in deleniti! Id? Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Corporis explicabo
+              debitis corrupti esse nisi commodi deleniti cumque nesciunt
+              deserunt dolorem fugit, suscipit sit, aliquid non ipsa minus
+              quaerat! Autem, repudiandae!
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)" @blackvnicorn-signed>&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      <!-- Carousel Nav Section  -->
+      <div class="absolute bottom-0 bg-[#374151cc] text-center w-full md:pt-7">
+        <!-- The Thunmbnails -->
+        <div class="md:block hidden mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="flex justify-between item-center w-full gap-3">
+            <div onclick="currentSlide(1)"
+              class="h-[20vh] cursor-pointer w-1/4 bg-[url('./assets/img/2nd-backdrop-peak-min.jpeg')] bg-cover">
+              &#32;
+            </div>
+            <div onclick="currentSlide(2)"
+              class="h-[20vh] cursor-pointer w-1/4 bg-[url('./assets/img/2nd-carousel-min.jpeg')] bg-cover">
+              &#32;
+            </div>
+            <div onclick="currentSlide(3)"
+              class="h-[20vh] cursor-pointer w-1/4 bg-[url('./assets/img/1st-carousel-min.jpeg')] bg-cover">
+              &#32;
+            </div>
+            <div onclick="currentSlide(1)"
+              class="h-[20vh] cursor-pointer w-1/4 bg-[url('./assets/img/2nd-backdrop-peak-min.jpeg')] bg-cover">
+              &#32;
+            </div>
+          </div>
+        </div>
+        <!-- The dots/circles -->
+        <div class="text-center py-3">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <section id="climb" class="border-0 relative w-full h-screen" sign="@blackvnicorn|azegaf@gmail.com|+2348030470290
+      ">
+      <div class="w-full h-60 bg-[url('./assets/img/3rd-backdrop-peak-min.jpeg')] bg-no-repeat h-screen bg-cover">
+        <!-- heading -->
+        <div class="w-full bg-white">
+          <div class="md:flex justify-between w-full mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <p class="md:w-2/6">
+              <span class="font-oswald font-bold text-[#697997] text-[4em] md:text-[10em] opacity-50">
+                02.
+              </span>
+              <span
+                class="font-oswald font-bold text-[#414f6b] text-md text-[2em] md:text-[2em] md:align-[37px] md:ml-[-2.2em] uppercase">
+                Climb
+              </span>
+            </p>
+            <p class="md:w-5/6 md:mt-[6em] font-lato text-black">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Necessitatibus est sunt neque, corporis nesciunt eos cum tempora
+              deserunt pariatur, optio recusandae eum veritatis unde
+              repudiandae aspernatur quos in deleniti! Id? Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Corporis explicabo
+              debitis corrupti esse nisi commodi deleniti cumque nesciunt
+              deserunt dolorem fugit, suscipit sit, aliquid non ipsa minus
+              quaerat! Autem, repudiandae!
+            </p>
+          </div>
+        </div>
+        <div class="w-full h-16 bg-gray-700">
+          <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex justify-start">
+            <button onclick="toggleTab(this)" id="tabButton1" name="1"
+              class="text-[#414f6b] bg-[#afb3bd] text-2xl h-16 px-5 uppercase font-oswald font-bold active underline">
+              mountain 1
+            </button>
+            <button onclick="toggleTab(this)" id="tabButton2" name="2"
+              class="text-[#414f6b] bg-[#374151cc] text-2xl h-16 px-5 uppercase font-oswald font-bold active underline">
+              mountain 2
+            </button>
+          </div>
+        </div>
+
+        <section id="sectionBody">
+          <!-- Tabs and Buttons -->
+          <article id="tabSection1" class="tab1 block">
+            <div class="mx-auto max-w-7xl mx-8 lg:px-8">
+              <div class="w-full bg-[#ffffffc9] px-6 py-3 lg:p-12 lg:w-2/6 lg:m-20">
+                <p class="py-4 font-oswald font-bold text-4xl text-default">
+                  SCHEDULE 1
+                </p>
+                <div class="flex justify-between py-6">
+                  <div>
+                    <p class="my-3">25 DEC 2023</p>
+                    <p class="my-3">25 DEC 2023</p>
+                    <p class="my-3">25 DEC 2023</p>
+                    <p class="my-3">25 DEC 2023</p>
+                  </div>
+                  <div>
+                    <p class="my-3">25 NOV 2016</p>
+                    <p class="my-3">25 NOV 2016</p>
+                    <p class="my-3">25 NOV 2016</p>
+                    <p class="my-3">25 NOV 2016</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="tabSection2" class="tab2 hidden">
+            <div class="mx-auto max-w-7xl mx-8 lg:px-8">
+              <div class="w-full bg-[#ffffffc9] px-6 py-3 lg:p-12 lg:w-2/6 lg:m-20">
+                <p class="py-4 font-oswald font-bold text-4xl text-default">
+                  SCHEDULE 2
+                </p>
+                <div class="flex justify-between py-6">
+                  <div>
+                    <p class="my-3">25 NOV 2016</p>
+                    <p class="my-3">25 NOV 2016</p>
+                    <p class="my-3">25 NOV 2016</p>
+                    <p class="my-3">25 NOV 2016</p>
+                  </div>
+                  <div>
+                    <p class="my-3">VIENA</p>
+                    <p class="my-3">VIENNA</p>
+                    <p class="my-3">VIENNA</p>
+                    <p class="my-3">VIENNA</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-[#404e6c] h-20 m-auto py-5">
+    <div class="flex justify-between mx-auto max-w-7xl mx-8 lg:px-8 my-auto">
+      <div class="h-100 my-auto flex item-center">
+        <img class="brightness-125 flex items-center" src="./assets/img/logo-app.png" alt="Your Company" />
+        <!-- <img src="'/assets/img/logo-app.png" alt="" srcset="" /> -->
+      </div>
+      <div class="text-default text-right flex items-center">
+        COPYRIGHT 2016. ALL RIGHTS RESERVED.
+      </div>
+    </div>
+  </footer>
+  <script>
+    window.onscroll = function () {
+      myFunction();
+    };
+    let header = document.querySelectorAll("header");
+    let dropDownMenu = document.getElementById("mobileDropdown");
+    let navMenu = document.getElementById("navButton");
+    let navItems = document.getElementById("navItems");
+    let slideIndex = 1;
+    let isDropownOpen = false;
+
+    function myFunction() {
+      if (window.pageYOffset > 100) {
+        header[0].classList.add("bg-white");
+        navItems.classList.remove("text-gray-300");
+        navItems.classList.add("text-gray-600");
+      } else {
+        header[0].classList.remove("bg-white");
+        navItems.classList.add("text-gray-300");
+        navItems.classList.remove("text-gray-600");
       }
+    }
 
-      const toggleMenu = () => {
-        isDropownOpen = !isDropownOpen;
-        if (isDropownOpen) {
-          dropDownMenu.style.display = "block";
-          navMenu.parentNode.children[4].style.display = "block";
-          navMenu.parentNode.children[3].style.display = "none";
-        } else {
-          navMenu.parentNode.children[3].style.display = "block";
-          navMenu.parentNode.children[4].style.display = "none";
-          dropDownMenu.style.display = "none";
-        }
-      };
-
-      showSlides(slideIndex);
-
-      // Next/previous controls
-      function plusSlides(n) {
-        showSlides((slideIndex += n));
+    const toggleMenu = () => {
+      isDropownOpen = !isDropownOpen;
+      if (isDropownOpen) {
+        dropDownMenu.style.display = "block";
+        navMenu.parentNode.children[4].style.display = "block";
+        navMenu.parentNode.children[3].style.display = "none";
+      } else {
+        navMenu.parentNode.children[3].style.display = "block";
+        navMenu.parentNode.children[4].style.display = "none";
+        dropDownMenu.style.display = "none";
       }
+    };
 
-      // Thumbnail image controls
-      function currentSlide(n) {
-        showSlides((slideIndex = n));
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {
+        slideIndex = 1;
       }
-
-      function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {
-          slideIndex = 1;
-        }
-        if (n < 1) {
-          slideIndex = slides.length;
-        }
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
+      if (n < 1) {
+        slideIndex = slides.length;
       }
-
-      let tabMain = document.getElementById("sectionBody");
-      let tabButton1 = document.getElementById("tabButton1");
-      let tabButton2 = document.getElementById("tabButton2");
-      function toggleTab(tab) {
-        // light - bg-[#afb3bd] dark - bg-[#374151cc]
-
-        if (tab.name == 1) {
-          activateTab(tab);
-          deactivate(tabButton2);
-        } else {
-          deactivate(tabButton1);
-          activateTab(tab);
-        }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
       }
-
-      function activateTab(button) {
-        button.style.background = "#afb3bd";
-        button.style.color = "#374151cc";
-
-        const tab = document.getElementById(`tabSection${button.name}`);
-        tab.style.display = "block";
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
       }
-      function deactivate(button) {
-        button.style.background = "#374151cc";
-        button.style.color = "#afb3bd";
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
 
-        const tab = document.getElementById(`tabSection${button.name}`);
-        tab.style.display = "none";
+    let tabMain = document.getElementById("sectionBody");
+    let tabButton1 = document.getElementById("tabButton1");
+    let tabButton2 = document.getElementById("tabButton2");
+    function toggleTab(tab) {
+      // light - bg-[#afb3bd] dark - bg-[#374151cc]
+
+      if (tab.name == 1) {
+        activateTab(tab);
+        deactivate(tabButton2);
+      } else {
+        deactivate(tabButton1);
+        activateTab(tab);
       }
-    </script>
-  </body>
+    }
+
+    function activateTab(button) {
+      button.style.background = "#afb3bd";
+      button.style.color = "#374151cc";
+
+      const tab = document.getElementById(`tabSection${button.name}`);
+      tab.style.display = "block";
+    }
+    function deactivate(button) {
+      button.style.background = "#374151cc";
+      button.style.color = "#afb3bd";
+
+      const tab = document.getElementById(`tabSection${button.name}`);
+      tab.style.display = "none";
+    }
+  </script>
+</body>
+
 </html>
